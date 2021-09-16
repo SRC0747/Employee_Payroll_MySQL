@@ -20,31 +20,31 @@ PRIMARY  KEY    (id)
 
 UC3:
 INSERT INTO EMPLOYEE_PAYROLL(name,salary,start) VALUES
-(‘Sampriti’,200000.00,’2018-01-03’),
-(‘Rakesh’,400000.00,’2019-11-13’),
-(‘Charlie’,300000.00,’2020-05-21’);
+(â€˜Billâ€™,200000.00,â€™2018-01-03â€™),
+(â€˜Markâ€™,400000.00,â€™2019-11-13â€™),
+(â€˜Charlieâ€™,300000.00,â€™2020-05-21â€™);
 
 UC4:
 
 SELECT * FROM employee_payroll;
 
 UC5:
-SELECT salary FROM employee_payroll where name=’Sampriti’;
+SELECT salary FROM employee_payroll where name=â€™Billâ€™;
 SELECT * FROM employee_payroll
-WHERE start BETWEEN CAST (‘2018-01-01’ AS DATE) AND DATE(NOW());
+WHERE start BETWEEN CAST (â€˜2018-01-01â€™ AS DATE) AND DATE(NOW());
 UC6:
 ALTER TABLE employee_payroll ADD gender CHAR(1) AFTER name;
 DESCRIBE employee_payroll;
-update employee_payroll set gender=’F’ where name=’Sampriti’;
-update employee_payroll set gender=’M’ where name=’Rakesh’;
-update employee_payroll set gender=’M’ where name=’Charlie’;
+update employee_payroll set gender=â€™Fâ€™ where name=â€™Billâ€™;
+update employee_payroll set gender=â€™Mâ€™ where name=â€™Markâ€™;
+update employee_payroll set gender=â€™Mâ€™ where name=â€™Charlieâ€™;
 SELECT * FROM employee_payroll;
 
-update employee_payroll set salary=500000.00 where name = ‘Sampriti’;
+update employee_payroll set salary=500000.00 where name = â€˜Billâ€™;
 
 
 UC7:
-SELECT AVG(salary)FROM employee_payroll WHERE gender = ‘M’ GROUP BY gender;
+SELECT AVG(salary)FROM employee_payroll WHERE gender = â€˜Mâ€™ GROUP BY gender;
 SELECT gender, AVG(salary) FROM employee_payroll GROUP BY gender;
 SELECT gender, COUNT(name) FROM employee_payroll GROUP BY gender;
 SELECT gender, SUM(salary) FROM employee_payroll GROUP BY gender;
