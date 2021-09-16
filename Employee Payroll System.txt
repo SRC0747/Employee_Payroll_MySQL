@@ -1,0 +1,59 @@
+Employee Payroll System
+
+UC1:
+CREATE DATABASE payroll_service;
+show databases;
+USE payroll_service;
+SELECT   DATABASE();
+
+
+UC2:
+create  table  employee_payroll
+(
+id        INT Unsigned NOT NULL AUTO-INCREMENT,
+name     VARCHAR(150) NOT NULL,
+salary     Double  NOT NULL,
+start        DATE  NOT   NULL,
+PRIMARY  KEY    (id)
+); 
+
+
+UC3:
+INSERT INTO EMPLOYEE_PAYROLL(name,salary,start) VALUES
+(‘Sampriti’,200000.00,’2018-01-03’),
+(‘Rakesh’,400000.00,’2019-11-13’),
+(‘Charlie’,300000.00,’2020-05-21’);
+
+UC4:
+
+SELECT * FROM employee_payroll;
+
+UC5:
+SELECT salary FROM employee_payroll where name=’Sampriti’;
+SELECT * FROM employee_payroll
+WHERE start BETWEEN CAST (‘2018-01-01’ AS DATE) AND DATE(NOW());
+UC6:
+ALTER TABLE employee_payroll ADD gender CHAR(1) AFTER name;
+DESCRIBE employee_payroll;
+update employee_payroll set gender=’F’ where name=’Sampriti’;
+update employee_payroll set gender=’M’ where name=’Rakesh’;
+update employee_payroll set gender=’M’ where name=’Charlie’;
+SELECT * FROM employee_payroll;
+
+update employee_payroll set salary=500000.00 where name = ‘Sampriti’;
+
+
+UC7:
+SELECT AVG(salary)FROM employee_payroll WHERE gender = ‘M’ GROUP BY gender;
+SELECT gender, AVG(salary) FROM employee_payroll GROUP BY gender;
+SELECT gender, COUNT(name) FROM employee_payroll GROUP BY gender;
+SELECT gender, SUM(salary) FROM employee_payroll GROUP BY gender;
+
+
+ 
+
+
+
+
+
+        
